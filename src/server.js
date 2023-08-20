@@ -8,6 +8,7 @@ app.use(cors())
 const telegramApiUrl = "https://api.telegram.org/bot";
 const botApiKey = "6510381491:AAFN3KidcOZvCwLTFZ6MdisIQXWOZZMhljc";
 
+
 /**
  * Faz uma requisição pra API do Telegram.
  *
@@ -28,7 +29,7 @@ const request = async (endpoint, body) => {
     }
     console.log(body);
 
-    const response = await axios(`${telegramApiUrl}${botApiKey}/${endpoint}`, options);
+    const response = await fetch(`${telegramApiUrl}${botApiKey}/${endpoint}`, options);
     const content = await response.json();
     return content;
 
