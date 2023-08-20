@@ -27,10 +27,10 @@ const request = async (endpoint, body) => {
         body: JSON.stringify(body)
       };
     }
-    console.log(body);
 
     const response = await fetch(`${telegramApiUrl}${botApiKey}/${endpoint}`, options);
     const content = await response.json();
+    console.log(body.text + '----' + new Date().toISOString());
     return content;
 
   } catch (err) {
@@ -43,15 +43,15 @@ const fetchData = async () => {
   try {
     const response = await axios({
       method: 'get',
-      url: 'https://xbtips-backend.vercel.app/api/racesGR',
+      url: 'https://jsonplaceholder.typicode.com/users',
       responseType: 'json'
     })
-    const cachedData = response.data.map((item) => item.atualizacao)
+    const cachedData = response.data.map((item) => item.name)
 
     // console.log(`${cachedData}`)
 
 
-    if ((new Date().getSeconds()) >= 20 && (new Date().getSeconds()) <= 40) {
+    if ((new Date().getSeconds()) >= 5 && (new Date().getSeconds()) <= 55) {
 
       const body = {
         chat_id: 1657028115,
@@ -64,10 +64,12 @@ const fetchData = async () => {
   } catch (error) {
     console.log(error);
   }
+
+  setTimeout(fetchData, 500);
 };
 
-setInterval(fetchData, 3000);
 
+fetchData()
 
 
 app.listen('4567')
