@@ -65,7 +65,7 @@ const fetchData = async () => {
     console.log(error);
   }
 
-  setTimeout(fetchData, 500);
+  setTimeout(fetchData, 10000);
 };
 
 
