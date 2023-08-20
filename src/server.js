@@ -28,7 +28,7 @@ const request = async (endpoint, body) => {
     }
     console.log(body);
 
-    const response = await fetch(`${telegramApiUrl}${botApiKey}/${endpoint}`, options);
+    const response = await axios(`${telegramApiUrl}${botApiKey}/${endpoint}`, options);
     const content = await response.json();
     return content;
 
