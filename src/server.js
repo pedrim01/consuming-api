@@ -65,11 +65,10 @@ const fetchData = async () => {
     console.log(error);
   }
 
-  setTimeout(fetchData, 10000);
+  
 };
 
-
-fetchData()
+setInterval(fetchData, 1000); 
 
 
 app.listen('4567')
